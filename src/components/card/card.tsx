@@ -24,14 +24,14 @@ interface CardProps {
 const Card = ({property, classNames, show, height, main}:CardProps) => {
   return (
     <div
-                className={`${classNames} flex-shrink-0 " w-[330px] md:w-[352px] shadow md:space-y-3" rounded-lg bg-white`}
+                className={`${classNames} flex-shrink-0 " w-[20.625rem] md:w-[22rem] shadow md:space-y-3" rounded-lg bg-white`}
               >
                 <Image
                   src={property.image}
                   width={352}
                   height={200}
                   alt="building"
-                  className={`${height} rounded-t-lg "w-full h-[200px] md:h-[262px]"`}
+                  className={`${height} rounded-t-lg "w-full h-[12.5rem] md:h-[16.375rem]"`}
                 />
                 <div className={`${main ? "p-2" : "p-4"} space-y-2 relative`}>
                   {property.badge && show && (
@@ -40,7 +40,7 @@ const Card = ({property, classNames, show, height, main}:CardProps) => {
                       width={100}
                       height={100}
                       alt="badge"
-                      className="absolute left-[-8px] top-[-25px]"
+                      className="absolute left-[-8px] top-[-1.563rem]"
                     />
                   )}
                   <div className="flex justify-between items-center">
