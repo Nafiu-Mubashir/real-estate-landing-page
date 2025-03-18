@@ -1,5 +1,11 @@
 import Image from "next/image";
 import { Geist, Geist_Mono } from "next/font/google";
+import Navbar from "@/components/navbar";
+import Footer from "@/components/footer";
+import Button from "@/components/button/button";
+import { Bathtub, Bed, Diamond, Heart, MagnifyingGlass } from "@phosphor-icons/react";
+import { useState } from "react";
+import Card from "@/components/card/card";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -11,103 +17,262 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
+const aprtments = [
+  {
+    image: "/building4.png",
+    price: "$2,095",
+    duration: "/month",
+    address: "2699 Green Valley, Highland Lake, FL",
+    name: "Palm Harbor",
+    description: {
+      size: "5x7 m²",
+      bathroom: "2",
+      room: "3",
+    },
+    badge: true,
+  },
+  {
+    image: "/building5.png",
+    price: "$2,095",
+    duration: "/month",
+    address: "2699 Green Valley, Highland Lake, FL",
+    name: "Palm Harbor",
+    description: {
+      size: "5x7 m²",
+      bathroom: "2",
+      room: "3",
+    },
+    badge: true,
+  },
+  {
+    image: "/building6.png",
+    price: "$2,095",
+    duration: "/month",
+    address: "2699 Green Valley, Highland Lake, FL",
+    name: "Palm Harbor",
+    description: {
+      size: "5x7 m²",
+      bathroom: "2",
+      room: "3",
+    },
+    badge: true,
+  },
+  {
+    image: "/building7.png",
+    price: "$2,095",
+    duration: "/month",
+    address: "2699 Green Valley, Highland Lake, FL",
+    name: "Palm Harbor",
+    description: {
+      size: "5x7 m²",
+      bathroom: "2",
+      room: "3",
+    },
+    badge: false,
+  },
+  {
+    image: "/building8.png",
+    price: "$2,095",
+    duration: "/month",
+    address: "2699 Green Valley, Highland Lake, FL",
+    name: "Palm Harbor",
+    description: {
+      size: "5x7 m²",
+      bathroom: "2",
+      room: "3",
+    },
+    badge: false,
+  },
+  {
+    image: "/building9.png",
+    price: "$2,095",
+    duration: "/month",
+    address: "2699 Green Valley, Highland Lake, FL",
+    name: "Palm Harbor",
+    description: {
+      size: "5x7 m²",
+      bathroom: "2",
+      room: "3",
+    },
+    badge: false,
+  },
+];
 export default function Home() {
+  const [activeTab, setActiveTab] = useState("rent");
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm/6 text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-[family-name:var(--font-geist-mono)] font-semibold">
-              src/pages/index.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=default-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
+    <div className="space-y-10">
+      <Navbar />
+      <section className="bg-background mt-[-40px]">
+        <div className="grid grid-cols-1 lg:grid-cols-2">
+          <div className="p-3 py-6 md:p-10 lg:p-20 lg:w-[80%] ml-auto space-y-5 text-center lg:text-left">
+            <h1 className="text-[40px] md:text-[64px] font-bold leading-10 md:leading-18">
+              Buy, rent, or sell your property easily
+            </h1>
+            <p className="w-full lg:w-[70%]">
+              A great platform to buy, sell, or even rent your properties
+              without any commisions.
+            </p>
+            {/* Stats */}
+            <div className="relative w-full mt-10 space-y-10">
+              <div className="flex gap-10">
+                <div className="flex gap-5">
+                  {/* Divider */}
+                  <div className="hidden md:block w-px bg-gray-300 h-10"></div>
+                  <div>
+                    <p className="text-2xl font-semibold text-indigo-600">
+                      50k+
+                    </p>
+                    <p className="text-gray-500">renters</p>
+                  </div>
+                </div>
+                <div className="flex gap-5">
+                  {/* Divider */}
+                  <div className="hidden md:block w-px bg-gray-300 h-10"></div>
+                  <div>
+                    <p className="text-2xl font-semibold text-indigo-600">
+                      10k+
+                    </p>
+                    <p className="text-gray-500">properties</p>
+                  </div>
+                </div>
+              </div>
+              <div>
+                <div className="relative grid grid-cols-3 bg-white rounded-t-lg w-[297px] text-center text-lg">
+                  {["rent", "buy", "sell"].map((tab) => (
+                    <button
+                      key={tab}
+                      onClick={() => setActiveTab(tab)}
+                      className={`px-6 py-3 text-lg font-medium capitalize relative transition-all duration-300 ${
+                        activeTab === tab ? "text-indigo-600" : "text-gray-500"
+                      }`}
+                    >
+                      {tab}
+                      {activeTab === tab && (
+                        <span className="absolute left-0 bottom-0 w-full h-0.5 bg-indigo-600 transition-all duration-300"></span>
+                      )}
+                    </button>
+                  ))}
+                </div>
+                {/* Tab Content */}
+                <div className="absolute w-[738px] bg-white shadow-md rounded-b-lg rounded-tr-lg p-6 hidden lg:block">
+                  {activeTab === "rent" && (
+                    <div className="flex flex-col md:flex-row justify-between items-center gap-4">
+                      {/* Location Field */}
+                      <div className="w-full md:w-1/4">
+                        <p className="text-gray-500 text-sm">Location</p>
+                        <p className="text-lg font-semibold">
+                          Barcelona, Spain
+                        </p>
+                      </div>
+
+                      {/* Divider */}
+                      <div className="hidden md:block w-px bg-gray-300 h-10"></div>
+
+                      {/* Move-in Date Field */}
+                      <div className="w-full md:w-1/4">
+                        <p className="text-gray-500 text-sm">When</p>
+                        <p className="text-lg font-semibold">
+                          Select Move-in Date
+                        </p>
+                      </div>
+
+                      {/* Divider */}
+                      <div className="hidden md:block w-px bg-gray-300 h-10"></div>
+
+                      <Button
+                        text="Browse Properties"
+                        type="button"
+                        fill
+                        classNames="py-3 px-6"
+                      />
+                    </div>
+                  )}
+                </div>
+                <div className="w-full block md:block bg-white shadow-md rounded-b-lg rounded-tr-lg p-6">
+                  <div className="flex justify-between items-center">
+                    <p>Search location</p>
+                    <MagnifyingGlass size={32} color="white" className="bg-primary rounded-lg p-2" />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            style={{
+              backgroundImage: 'url("/map.png")',
+            }}
+            className="p-3 py-6 md:p-20 bg-no-repeat bg-center bg-cover hidden lg:block"
           >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=default-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+            <div className="w-[80%]">
+            <Card property={aprtments[1]} classNames="md:!w-[320px] md:!h-auto !rounded-lg" height="md:h-200px" />
+            <Card property={aprtments[5]} classNames="md:!w-[200px] md:!h-auto !rounded-lg ml-auto border border-primary p-1" height="md:!h-[120px]" main/>
+            </div>
+          </div>
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=default-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
+      </section>
+      <section className="max-w-screen-xl mx-auto p-3 md:p-20 space-y-10">
+        <div className="flex flex-col md:flex-row justify-between items-center">
+          <div className="text-center md:text-left">
+            <h2 className="text-2xl font-bold mb-3">Based on your location</h2>
+            <p>Some of our picked properties near you location.</p>
+          </div>
+          <Button
+            type="button"
+            text="Browse more properties"
+            fill
+            classNames="hidden md:block"
           />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=default-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=default-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
+        </div>
+
+        <div className="flex justify-between gap-4 lg:flex-wrap overflow-auto snap-x snap-mandatory px-2">
+          {aprtments.map(
+            (
+              property,
+              id
+            ) => (
+              <Card key={id} property={property} show/>
+            )
+          )}
+        </div>
+        <Button
+          type="button"
+          text="Browse more properties"
+          fill
+          classNames="block mx-auto md:hidden"
+        />
+      </section>
+
+      <section className="bg-secondary">
+        <div className="flex flex-col justify-between items-center text-center p-6 md:p-10 space-y-4">
+          <p className="text-primary font-semibold text-2xl">No Spam Promise</p>
+          <h3 className="font-bold text-3xl text-white">Are you a landlord?</h3>
+          <p className="text-[#D3D5DA] text-sm md:text-base">
+            Discover ways to increase your home's value and get listed. No Spam.
+          </p>
+
+          <form className="w-full md:w-1/4 mx-auto">
+            <div className="relative space-y-3">
+              <input
+                type="search"
+                id="default-search"
+                className="block w-full p-3 md:p-4 ps-4 text-sm text-gray-900 border border-gray-300 rounded bg-gray-50 focus:ring-blue-500 focus:border-blue-500"
+                placeholder="Enter your email address"
+                required
+              />
+              <button
+                type="submit"
+                className="text-white w-full md:w-auto md:absolute end-2.5 bottom-2.5 bg-primary hover:bg-primary focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded text-sm px-6 py-2 "
+              >
+                Submit
+              </button>
+            </div>
+          </form>
+          <p className="text-white text-xs md:text-sm">
+            Join 10,000+ other landlords in our estatery community.
+          </p>
+        </div>
+      </section>
+      <Footer />
     </div>
   );
 }
