@@ -3,6 +3,9 @@ import Footer from "@/components/footer";
 import Button from "@/components/button/button";
 import {
   CaretRight,
+  CellSignalX,
+  CurrencyDollar,
+  House,
   HouseLine,
   MagnifyingGlass,
   YoutubeLogo,
@@ -327,7 +330,12 @@ export default function Home() {
 
             {/* Stats */}
             <div className="mt-8 grid grid-cols-1 md:grid-cols-3 gap-6">
-              <div className="md:text-center flex flex-row md:flex-col">
+              <div className="md:text-center flex flex-row md:flex-col items-center gap-1">
+                <House
+                  size={20}
+                  color="#7065F0"
+                  className="border border-secondary/10 p-2 rounded-full h-10 w-10"
+                />
                 <div>
                   <span className="text-2xl font-semibold text-gray-900">
                     7.4%
@@ -335,7 +343,12 @@ export default function Home() {
                   <p className="text-xs text-gray-600">Property Return Rate</p>
                 </div>
               </div>
-              <div className="md:text-center flex flex-row md:flex-col">
+              <div className="md:text-center flex flex-row md:flex-col items-center gap-1">
+                <CellSignalX
+                  size={20}
+                  color="#7065F0"
+                  className="border border-secondary/10 p-2 rounded-full h-10 w-10"
+                />
                 <div>
                   <span className="text-2xl font-semibold text-gray-900">
                     3,856
@@ -345,7 +358,12 @@ export default function Home() {
                   </p>
                 </div>
               </div>
-              <div className="md:text-center flex flex-row md:flex-col">
+              <div className="md:text-center flex flex-row md:flex-col items-center gap-1">
+                <CurrencyDollar
+                  size={20}
+                  color="#7065F0"
+                  className="border border-secondary/10 p-2 rounded-full h-10 w-10"
+                />
                 <div>
                   <span className="text-2xl font-semibold text-gray-900">
                     2,540
@@ -425,7 +443,7 @@ export default function Home() {
                 key={index}
                 className={`w-12 h-12 rounded-full overflow-hidden border-2 ${
                   index === 0
-                    ? "border-purple-600 bg-background"
+                    ? "border-primary bg-background"
                     : "border-gray-300"
                 }`}
               >
@@ -442,7 +460,7 @@ export default function Home() {
         </section>
       </section>
 
-      <section className="bg-secondary">
+      <section className="bg-secondary py-10">
         <div className="flex flex-col justify-between items-center text-center p-6 md:p-10 space-y-4">
           <p className="text-primary font-semibold text-2xl">No Spam Promise</p>
           <h3 className="font-bold text-3xl text-white">Are you a landlord?</h3>
@@ -452,7 +470,7 @@ export default function Home() {
             }
           </p>
 
-          <form className="w-full md:w-1/4 mx-auto">
+          <form className="w-full md:w-1/2 lg:w-1/4 mx-auto">
             <div className="relative space-y-3">
               <input
                 type="search"
