@@ -1,21 +1,10 @@
-import Image from "next/image";
-import { Geist, Geist_Mono } from "next/font/google";
 import Navbar from "@/components/navbar";
 import Footer from "@/components/footer";
 import Button from "@/components/button/button";
-import { Bathtub, Bed, Diamond, Heart, MagnifyingGlass } from "@phosphor-icons/react";
+import { MagnifyingGlass } from "@phosphor-icons/react";
 import { useState } from "react";
 import Card from "@/components/card/card";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
 
 const aprtments = [
   {
@@ -247,7 +236,7 @@ export default function Home() {
           <p className="text-primary font-semibold text-2xl">No Spam Promise</p>
           <h3 className="font-bold text-3xl text-white">Are you a landlord?</h3>
           <p className="text-[#D3D5DA] text-sm md:text-base">
-            Discover ways to increase your home's value and get listed. No Spam.
+            {"Discover ways to increase your home's value and get listed. No Spam."}
           </p>
 
           <form className="w-full md:w-1/4 mx-auto">
