@@ -311,6 +311,66 @@ export default function Home() {
         </div>
       </section>
 
+      <section className="py-16 px-3 md:px-6">
+        <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-5 md:gap-10 border border-secondary/10 rounded-lg bg-background">
+          {/* Text Content */}
+          <div className="p-4 md:p-12">
+            <div className="w-full md:w-[75%]">
+              <h2 className="text-3xl md:text-4xl font-bold text-gray-900 leading-tight">
+                The new way to find your new home
+              </h2>
+              <p className="mt-4 text-gray-600 text-lg">
+                Find your dream place to live in with more than 10k+ properties
+                listed.
+              </p>
+            </div>
+
+            {/* Stats */}
+            <div className="mt-8 grid grid-cols-1 md:grid-cols-3 gap-6">
+              <div className="md:text-center flex flex-row md:flex-col">
+                <div>
+                  <span className="text-2xl font-semibold text-gray-900">
+                    7.4%
+                  </span>
+                  <p className="text-xs text-gray-600">Property Return Rate</p>
+                </div>
+              </div>
+              <div className="md:text-center flex flex-row md:flex-col">
+                <div>
+                  <span className="text-2xl font-semibold text-gray-900">
+                    3,856
+                  </span>
+                  <p className="text-xs text-gray-600">
+                    Property in Sell & Rent
+                  </p>
+                </div>
+              </div>
+              <div className="md:text-center flex flex-row md:flex-col">
+                <div>
+                  <span className="text-2xl font-semibold text-gray-900">
+                    2,540
+                  </span>
+                  <p className="text-xs text-gray-600">
+                    Daily Completed Transactions
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Image */}
+          <div className="flex justify-end md:justify-center">
+            <Image
+              src="/building.png" // Place your image in the `public/images/` folder
+              alt="House illustration"
+              width={500}
+              height={350}
+              className="w-full"
+            />
+          </div>
+        </div>
+      </section>
+
       <section>
         <section className="bg-gradient-to-b from-white to-background">
           <div className="max-w-screen-xl mx-auto p-3 md:p-20 space-y-10 ">
@@ -364,7 +424,9 @@ export default function Home() {
               <button
                 key={index}
                 className={`w-12 h-12 rounded-full overflow-hidden border-2 ${
-                  index === 0 ? "border-purple-600 bg-background" : "border-gray-300"
+                  index === 0
+                    ? "border-purple-600 bg-background"
+                    : "border-gray-300"
                 }`}
               >
                 <Image
